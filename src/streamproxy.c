@@ -227,6 +227,7 @@ bad_gateway:
 		upstream_response_code == 401 ? "401 Unauthorized" : "502 Bad Gateway",
 		wwwauthenticate, reason);
 	closelog();
+	free(reason); // Freeing reason if it was allocated dynamically
 	return 1;
 }
 
